@@ -1,6 +1,6 @@
 name:                real-day-end
-version:             0.1.0.0
-synopsis:  Tiny library to calculate date considering when your day realy ends
+version:             0.0.1
+synopsis:            Tiny library to calculate date considering when your day realy ends
 -- description:
 homepage:            https://github.com/s9gf4ult/real-day-end
 license:             BSD3
@@ -16,8 +16,9 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   ghc-options:         -Wall
-  exposed-modules:     Lib
+  exposed-modules:     Data.Time.RealDayEnd
   build-depends:       base >= 4.7 && < 5
+                     , time
   default-language:    Haskell2010
 
 test-suite real-day-end-test
@@ -25,7 +26,11 @@ test-suite real-day-end-test
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
+                     , quickcheck-instances
                      , real-day-end
+                     , tasty
+                     , tasty-quickcheck
+                     , time
   ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
